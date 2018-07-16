@@ -1,0 +1,37 @@
+<template>
+  <div class="page-header">
+    <h1>Rejestracja użytkownika</h1>
+  </div>
+  <div class="alert alert-danger" role="alert" if.bind="validationController.errors.length > 0">
+    <ul>
+      <li repeat.for="error of validationController.errors">${error.message}</li>
+    </ul>
+  </div>
+  <form action="">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="register-login">login</span>
+      </div>
+      <input value.bind="model.login & validate" type="text" class="form-control">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="register-email">email</span>
+      </div>
+      <input value.bind="model.email & validate" type="email" class="form-control">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="register-password">hasło</span>
+      </div>
+      <input value.bind="model.password & validate" type="password" class="form-control">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="register-confirm">Potwierdź hasło</span>
+      </div>
+      <input value.bind="model.confirmPassword & validate" type="password" class="form-control">
+    </div>
+    <button disabled.bind="validationController.errors.length > 0" click.delegate="register()" class="btn btn-primary" type="submit">Wyślij</button>
+  </form>
+</template>
