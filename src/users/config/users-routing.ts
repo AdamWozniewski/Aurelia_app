@@ -10,7 +10,12 @@ export class UsersRouting {
         nav: true,
         title: 'Register',
       },
-      // {route: 'login', moduleId: './../view-models/login', nav: true, title: 'Login'}
+      {
+        route: 'login',
+        moduleId: './../view-models/login/login',
+        nav: true,
+        title: 'Login'
+      },
     ]);
   }
 }

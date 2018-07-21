@@ -2,11 +2,11 @@
   <div class="page-header">
     <h1>Rejestracja użytkownika</h1>
   </div>
-  <div class="alert alert-danger" role="alert" if.bind="validationController.errors.length > 0">
-    <ul>
-      <li repeat.for="error of validationController.errors">${error.message}</li>
-    </ul>
-  </div>
+  <compose
+    view-model="./../../../sharedComponents/validation-alert"
+    view-bind="./../../../sharedComponents/validation-alert.html"
+    model.bind="validationController"
+  ></compose>
   <form action="">
     <div class="input-group mb-3">
       <div class="input-group-prepend">

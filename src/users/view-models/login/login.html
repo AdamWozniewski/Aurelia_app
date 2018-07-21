@@ -1,0 +1,33 @@
+<template>
+  <div class="page-header">
+    <h1>Logowanie</h1>
+  </div>
+  <compose
+    view-model="./../../../sharedComponents/validation-alert"
+    view-bind="./../../../sharedComponents/validation-alert.html"
+    model.bind="validationController"
+  ></compose>
+  <form action="">
+    <div validation-errors.bind="errors">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="login-login">Login</span>
+        </div>
+        <input value.bind="model.login & validate" aria-describedby="login-login" type="text" class="form-control">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="login-password">Hasło</span>
+        </div>
+        <input type="text" class="form-control" value.bind="model.password & validate" aria-describedby="login-password">
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" value.bind="rememberMe">
+          Pamiętaj mnie
+        </label>
+      </div>
+      <button disabled.bind="validationController.errors.length > 0" click.delegate="login()" class="btn btn-primary" type="submit">Wyślij</button>
+    </div>
+  </form>
+</template>
