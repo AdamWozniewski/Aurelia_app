@@ -16,6 +16,7 @@
     "bluebird": "^3.5.1",
     "bootstrap": "^4.1.1",
     "jquery": "^3.3.1",
+    "moment": "^2.22.2",
     "popper.js": "^1.14.3",
     "requirejs": "^2.3.5",
     "text": "github:requirejs/text#latest",

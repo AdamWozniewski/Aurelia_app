@@ -1,0 +1,44 @@
+<template>
+  <require from="./../../core/data-format-value-converter"></require>
+  <div class="page-header">
+    <h1>${event.name}</h1>
+  </div>
+  <div>
+    <div class="row">
+      <div class="col">
+        <p>
+          <h3>
+            <strong>opis: ${event.desc}</strong>
+          </h3>
+        </p>
+        <hr>
+        <p>${event.startDate | dateFormat: 'M/D/YYYY'}</p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="${ticketsBanner.class}">${ticketsBanner.text}</div>
+  <hr>
+  <table class="table table-boardered table-row" if.bind="event.availableTicketsCount > 0">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>price</th>
+        <th>amount</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ticket</td>
+        <td>${ticketsPrice}</td>
+        <td>
+          <input value.bind="ticketAmout" type="number" class="form-control" placeholder="ilosc biletow">
+        </td>
+        <td>
+          <button click.delegate="purchasedTickets()" class="btn btn-success">KUP</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</template>

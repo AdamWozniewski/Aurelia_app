@@ -1,0 +1,32 @@
+<template>
+    <div class="page-header">
+        <h1>Twoje Zdarzenia</h1>
+    </div>
+    <table class="table table-bordered tabble-hover">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Start</th>
+                <th>Zakończenie</th>
+                <th>Ilośc biletów</th>
+                <th>Sprzedane</th>
+                <th>Dostępne</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr repeat.for="event of events">
+                <td>${event.name}</td>
+                <td>${event.startDate}</td>
+                <td>${event.endDate | dateFormat: 'D/M/YYYY h:mm:ss'}</td>
+                <td>${event.ticketsCount}</td>
+                <td>${event.purchasedTicketsCount}</td>
+                <td>${event.availableTicketsCount}</td>
+                <td>
+                    <button class="btn btn-primary" click.delegate="redirectToAdminEventForm(event.id)">Edycja</button>
+                    <button class="btn btn-danger" click.delegate="redirectToAdminEventForm(event.id, $index)">Usuń</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</template>

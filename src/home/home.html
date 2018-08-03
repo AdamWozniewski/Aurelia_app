@@ -1,3 +1,26 @@
 <template>
-  Strona HOME
+  <require from="./../core/converter"></require>
+  <div class="row">
+    <input type="text" class="form-control" placeholder="Search..." value.bind="searchText & debounce: 500">
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col col-sm-6 col-md-3" repeat.for="event of events">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3>${event.name}</h3>
+          <p>${event.desc}</p>
+          <hr>
+          <p>Start: ${event.startDate | dateFormat: 'D/M/YYYY'}</p>
+          <p>Start: ${event.endDate | dateFormat: 'D/M/YYYY'}</p>
+          <p class="${event.availableTicketsCount < 10 ? 'bg-danger' : ''}">
+            ${event.availableTicketsCount}
+          </p>
+          <p>
+            <button class="btn btn-primary" click.delegate="redirectToEventDetails(event.id)">Kup bilet</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
